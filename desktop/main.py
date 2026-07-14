@@ -1,11 +1,14 @@
 from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QTextEdit, QLineEdit, QPushButton
-from PySide6.QtCore import Qt
 import sys
+from ai_bridge import AIBridge
 
 
 class AIWorldWindow(QWidget):
     def __init__(self):
         super().__init__()
+
+        self.ai = AIBridge()
+
         self.setWindowTitle("AI文字世界")
         self.resize(900, 600)
 
@@ -31,7 +34,8 @@ class AIWorldWindow(QWidget):
         text = self.input.text()
         if text:
             self.chat.append("玩家: " + text)
-            self.chat.append("AI: 正在分析世界状态...")
+            response = self.ai.chat(text)
+            self.chat.append("AI: " + response)
             self.input.clear()
 
 
