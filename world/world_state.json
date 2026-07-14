@@ -1,0 +1,11 @@
+{
+  "time":"morning",
+  "weather":"clear",
+  "location":"unknown",
+  "events":[],
+  "player":{
+    "health":100,
+    "money":0,
+    "reputation":0
+  }
+}
